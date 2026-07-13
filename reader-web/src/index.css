@@ -1,0 +1,58 @@
+:root {
+  --expresso: #3b2d24;
+  --send: #b7a28b;
+  --avory: #f5ede1;
+  --almond: #aa8c6a;
+  --beige: #ddd1c3;
+}
+
+/* Default light theme settings (also as default fallback) */
+:root, [data-theme="light"] {
+  --bg-color: var(--avory);
+  --text-color: var(--expresso);
+  --panel-bg: #ffffff;
+  --panel-border: rgba(59, 45, 36, 0.12);
+  --panel-text: var(--expresso);
+  --panel-text-secondary: #705b4e;
+  --control-bg: #f9f6f0;
+  --control-border: #e6dfd5;
+  --accent-color: #aa8c6a;
+  --accent-hover: #8e7253;
+  --shadow-color: rgba(59, 45, 36, 0.08);
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a120b;
+  --text-color: #ebd8c3;
+  --panel-bg: #271c14;
+  --panel-border: rgba(235, 216, 195, 0.12);
+  --panel-text: #ebd8c3;
+  --panel-text-secondary: #b09c89;
+  --control-bg: #1f150e;
+  --control-border: #3b2c20;
+  --accent-color: #aa8c6a;
+  --accent-hover: #c4a785;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="sepia"] {
+  --bg-color: #f4ecd8;
+  --text-color: #5c4333;
+  --panel-bg: #faf4e8;
+  --panel-border: rgba(92, 67, 51, 0.12);
+  --panel-text: #5c4333;
+  --panel-text-secondary: #8c7160;
+  --control-bg: #eddcb8;
+  --control-border: #dfccaa;
+  --accent-color: #aa8c6a;
+  --accent-hover: #8e7253;
+  --shadow-color: rgba(92, 67, 51, 0.06);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

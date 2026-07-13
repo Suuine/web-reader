@@ -1,0 +1,143 @@
+.ChapterContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  line-height: var(--line-height, 1.8);
+  font-family: var(--font-family), serif;
+  font-size: var(--font-size, 16px);
+  transition: color 0.3s ease, font-family 0.2s ease;
+  position: relative;
+}
+ 
+.chapter-title {
+  font-size: calc(var(--font-size, 16px) * 1.8);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 45px;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.3s ease;
+}
+ 
+.chapter-content {
+  font-size: var(--font-size, 16px);
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+ 
+.chapter-paragraph {
+  margin: 0;     
+  padding: 0;     
+  margin-bottom: 1.6em;
+  text-align: justify;
+  line-height: var(--line-height, 1.8);
+  word-spacing: 0.05em;
+  text-indent: 1.5em;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+ 
+ 
+.chapter-paragraph strong {
+  font-weight: 700;
+  color: inherit;
+}
+ 
+/* Стилізація для <em> (курсив) */
+.chapter-paragraph em {
+  font-style: italic;
+  color: inherit;
+}
+ 
+/* Стилізація для <u> (підкреслено) */
+.chapter-paragraph u {
+  text-decoration: underline;
+  color: inherit;
+}
+ 
+/* Стилізація для <mark> (виділено) */
+.chapter-paragraph mark {
+  background-color: rgba(170, 140, 106, 0.25);
+  padding: 0 4px;
+  border-radius: 2px;
+  color: inherit;
+}
+ 
+/* Медіа-запит для мобільних */
+@media (max-width: 768px) {
+  .ChapterContent {
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+ 
+  .chapter-title {
+    font-size: calc(var(--font-size, 16px) * 1.4);
+    margin-bottom: 10px;
+  }
+ 
+  .chapter-paragraph {
+    margin-bottom: 1.2em;
+    text-indent: 1.2em;
+    margin:0;
+    padding:0;
+  }
+
+  .chapter-word-count-badge {
+    position: static;
+    display: inline-block;
+    margin: 8px auto 0 auto;
+  }
+ 
+}
+
+.chapter-spacer {
+  height: calc(var(--line-height, 1.8) * var(--font-size, 16px));
+  margin: 0;
+}
+
+.chapter-word-count-badge {
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--panel-text-secondary);
+  background-color: var(--control-bg);
+  border: 1px solid var(--control-border);
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: none;
+  letter-spacing: normal;
+  font-family: var(--font-family), sans-serif;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.chapter-paragraph blockquote {
+  margin: 24px 0;
+  padding: 20px 24px;
+  border-left: 4px solid var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  font-style: italic;
+  line-height: 1.8;
+  font-size: 15px;
+}
+ 
+.chapter-paragraph blockquote:before {
+  content: '"';
+  font-size: 18px;
+  color: var(--expresso);
+  opacity: 0.4;
+  margin-right: 2px;
+  margin-left: -2px;
+}
+ 
+.chapter-paragraph blockquote:after {
+  content: '"';
+  font-size: 18px;
+  color: var(--expresso);
+  opacity: 0.4;
+  margin-left: 2px;
+  margin-right: -2px;
+}
