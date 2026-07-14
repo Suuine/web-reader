@@ -20,6 +20,7 @@ function App() {
       />
       {currentChapter ? (
         <ChapterContent 
+          id={currentChapter.id}
           title={currentChapter.title} 
           content={currentChapter.content} 
           wordCount={currentChapter.wordCount}
