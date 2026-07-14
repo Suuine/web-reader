@@ -1,16 +1,27 @@
 import { useState } from "react";
 import "./style/Header.css";
-import { RowsIcon, X } from "@phosphor-icons/react";
+import { RowsIcon, X, Check } from "@phosphor-icons/react";
 import type { Chapter } from "../utils/chapters";
 import { FontSettings } from "./FontSettings";
+import { AccountMenu } from "./AccountMenu";
 
 type HeaderProps = {
   chapters: Chapter[];
   currentChapterId: number;
   onSelectChapter: (id: number) => void;
+  currentUser: string;
+  onLogin: (username: string) => void;
+  readChapters: number[];
 };
 
-export function Header({ chapters, currentChapterId, onSelectChapter }: HeaderProps) {
+export function Header({ 
+  chapters, 
+  currentChapterId, 
+  onSelectChapter, 
+  currentUser, 
+  onLogin, 
+  readChapters 
+}: HeaderProps) {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   function handleSelect(id: number) {
@@ -29,22 +40,26 @@ export function Header({ chapters, currentChapterId, onSelectChapter }: HeaderPr
   return (
     <>
       <header className="Header">
-        <div className="spacer"></div>
+        <AccountMenu 
+          currentUser={currentUser} 
+          onLogin={onLogin} 
+          readChaptersCount={readChapters.length} 
+          totalChaptersCount={chapters.length} 
+        />
         <h1 className="logoName">Fallen King</h1>
         <nav className="Navbar">
-          <div 
+          <button 
             className="burger" 
             onClick={() => setIsNavOpen(true)}
+            title="Розділи"
+            aria-label="Відкрити розділи"
           >
-            <RowsIcon size={32} color="var(--avory)" />
-          </div>
-          <div className="settings">
-            <FontSettings />
-          </div>
+            <RowsIcon size={28} color="var(--avory)" />
+          </button>
+          <FontSettings />         
         </nav>
       </header>
 
-      {/*背景overlay */}
       {isNavOpen && (
         <div 
           className="navOverlay" 
@@ -52,7 +67,6 @@ export function Header({ chapters, currentChapterId, onSelectChapter }: HeaderPr
         />
       )}
 
-      {/* Бокова панель */}
       <div className={`sideDrawer ${isNavOpen ? "open" : ""}`}>
         <div className="drawerHeader">
           <h2>Розділи</h2>
@@ -74,7 +88,14 @@ export function Header({ chapters, currentChapterId, onSelectChapter }: HeaderPr
               <div className="chapter-number">{chapter.id}</div>
               <div className="chapter-info">
                 <h3 className="chapter-item-title">
-                  {chapter.title}
+                  <span className="chapter-title-text-group">
+                    {chapter.title}
+                    {readChapters.includes(chapter.id) && (
+                      <span className="read-checkmark">
+                        <Check size={14} weight="bold" />
+                      </span>
+                    )}
+                  </span>
                   <span className="chapter-item-word-count">{chapter.wordCount} слів</span>
                 </h3>
                 <p className="chapter-preview">{getPreview(chapter.content, 120)}</p>

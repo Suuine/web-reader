@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { FontSettings } from "./FontSettings";
+import { CheckCircle } from "@phosphor-icons/react";
 import "./style/ChapterContent.css";
 
 type ChapterContentProps = {
@@ -7,9 +8,18 @@ type ChapterContentProps = {
   title: string;
   content: string;
   wordCount: number;
+  isRead: boolean;
+  onToggleRead: () => void;
 };
 
-export function ChapterContent({ id, title, content, wordCount }: ChapterContentProps) {
+export function ChapterContent({ 
+  id, 
+  title, 
+  content, 
+  wordCount, 
+  isRead, 
+  onToggleRead 
+}: ChapterContentProps) {
   const rawParagraphs = content.split("\n\n");
   const paragraphs = rawParagraphs.map((para) => para.trim());
   const isRestoring = useRef(false);
@@ -71,7 +81,14 @@ export function ChapterContent({ id, title, content, wordCount }: ChapterContent
         })}
       </div>
       <div className="chapter-footer">
-        <br />
+        <button 
+          className={`read-toggle-btn ${isRead ? "read" : "unread"}`}
+          onClick={onToggleRead}
+          title={isRead ? "Позначити як непрочитану" : "Позначити як прочитану"}
+        >
+          <CheckCircle size={22} weight={isRead ? "fill" : "regular"} />
+          <span>{isRead ? "Прочитано" : "Позначити як прочитану"}</span>
+        </button>
       </div>
     </div>
   );

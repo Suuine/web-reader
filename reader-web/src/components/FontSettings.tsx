@@ -5,7 +5,7 @@ import { GearIcon, X } from "@phosphor-icons/react";
 export function FontSettings() {
   const [fontSize, setFontSize] = useState<number>(() => {
     const saved = localStorage.getItem("reader-font-size");
-    return saved ? Number(saved) : 16;
+    return saved ? Number(saved) : 19;
   });
   const [lineHeight, setLineHeight] = useState<number>(() => {
     const saved = localStorage.getItem("reader-line-height");
@@ -21,11 +21,11 @@ export function FontSettings() {
 
   const possibleFontFamilies = [
     "EB Garamond",
-    "Times New Roman",
-    "Georgia",
+    "Lora",
+    "Merriweather",
+    "Inter",
     "Arial",
-    "Verdana",
-    "Tahoma",
+    "Times New Roman",
   ];
   const possibleThemes = ["light", "dark", "sepia"];
 

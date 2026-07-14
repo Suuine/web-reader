@@ -20,7 +20,7 @@
 
 .Navbar {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -34,17 +34,26 @@
   font-family: 'Arial', sans-serif;
 }
 
-.burger, .settings {
+.burger {
   cursor: pointer;
-  padding: 5px;
-  font-weight: bold;
-  transition: opacity 0.2s ease;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   border: none;
-  background: none;
+  background: transparent;
+  color: var(--avory);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  outline: none;
 }
 
-.burger:hover, .settings:hover {
-  opacity: 0.8;
+.burger:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.burger:active {
+  transform: scale(0.95);
 }
 
 /* Overlay (затьмарена область) */
@@ -243,6 +252,18 @@
   .chapter-preview {
     font-size: 11px;
   }
+}
+
+.chapter-title-text-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.read-checkmark {
+  color: var(--accent-color);
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
 * {
